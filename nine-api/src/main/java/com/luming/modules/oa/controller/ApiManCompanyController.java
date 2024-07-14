@@ -199,14 +199,9 @@ public class ApiManCompanyController {
     @Login
     @PostMapping("delete")
     @ApiOperation("删除公司")
-    public R delete(@RequestBody Map<String, String> ids) {
-        log.info("delete, ids:{}", ids.get("ids"));
-        String params =  ids.get("ids");
-        List<Long> companyIds = new ArrayList<Long>();
-        Arrays.stream(params.split(",")).forEach
-                (id -> companyIds.add(Long.parseLong(id)));
-
-        return companyService.removeByIds(companyIds) ? R.ok() : R.error();
+    public R delete(@RequestBody Long[] ids) {
+        return customerService.removeByIds(Arrays.asList(ids))?
+                R.ok() : R.error();
     }
 
 }

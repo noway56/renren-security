@@ -158,9 +158,8 @@ public class CustomerController {
     @PostMapping("/delete")
     @ApiOperation("删除客户")
     public R delete(@RequestBody Long[] customerIds){
-        customerService.removeByIds(Arrays.asList(customerIds));
-
-        return R.ok();
+        return customerService.removeByIds(Arrays.asList(customerIds))?
+                R.ok():R.error();
     }
 
 }

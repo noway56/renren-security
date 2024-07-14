@@ -14,8 +14,5 @@ import java.util.Map;
 public class MaterialServiceImpl extends ServiceImpl<MaterialDao, MaterialEntity> implements MaterialService {
 
 
-    @Override
-    public PageUtils queryPage(Map<String, Object> params) {
-        return null;
-    }
+
 }

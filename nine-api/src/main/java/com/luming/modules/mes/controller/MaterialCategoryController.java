@@ -92,8 +92,8 @@ public class MaterialCategoryController {
     /**
      * 信息
      */
-        @GetMapping("/info/{tenantId}")
-        @ApiOperation("原材料类别详情")
+    @PostMapping("/info/{tenantId}")
+    @ApiOperation("原材料类别详情")
     public R info(@PathVariable("tenantId") Long tenantId){
         MaterialCategoryEntity materialCategory = materialCategoryService.getById(tenantId);
 

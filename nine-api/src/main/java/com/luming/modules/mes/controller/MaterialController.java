@@ -105,10 +105,10 @@ public class MaterialController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] tenantIds){
-        materialService.removeByIds(Arrays.asList(tenantIds));
-
-        return R.ok();
+    public R delete(@RequestBody Long[] materialIds) {
+        return materialService.removeByIds(Arrays.asList(materialIds)) ?
+                R.ok() : R.error();
     }
+
 
 }

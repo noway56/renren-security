@@ -169,9 +169,8 @@ public class ProviderController {
     @PostMapping("/delete")
     @ApiOperation("删除供应商")
     public R delete(@RequestBody Long[] tenantIds){
-        providerService.removeByIds(Arrays.asList(tenantIds));
-
-        return R.ok();
+        return providerService.removeByIds(Arrays.asList(tenantIds))
+                ?R.ok():R.error();
     }
 
 }

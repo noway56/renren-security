@@ -15,6 +15,5 @@ import java.util.Map;
  */
 public interface MaterialService extends IService<MaterialEntity> {
 
-    PageUtils queryPage(Map<String, Object> params);
 }
 

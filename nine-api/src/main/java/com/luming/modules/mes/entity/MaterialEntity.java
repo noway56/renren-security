@@ -22,11 +22,11 @@ public class MaterialEntity implements Serializable {
 	/**
 	 * 租户ID
 	 */
-	@TableId
 	private Long tenantId;
 	/**
 	 * 原材料ID
 	 */
+	@TableId
 	private Long materialId;
 	/**
 	 * 原材料编码
