@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luming.modules.crm.dao.CustomerAccountFlowDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.luming.modules.crm.entity.CustomerAccountFlowEntity" id="customerAccountFlowMap">
+        <result property="tenantId" column="tenant_id"/>
+        <result property="customerId" column="customer_id"/>
+        <result property="accountFlowId" column="account_flow_id"/>
+        <result property="accountFlowType" column="account_flow_type"/>
+        <result property="accountFlowAmount" column="account_flow_amount"/>
+        <result property="accountFlowRemark" column="account_flow_remark"/>
+        <result property="accountFlowTime" column="account_flow_time"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deleteTime" column="delete_time"/>
+    </resultMap>
+
+
+</mapper>

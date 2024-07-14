@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luming.modules.crm.dao.CustomerAccountRecordDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.luming.modules.crm.entity.CustomerAccountRecordEntity" id="customerAccountRecordMap">
+        <result property="tenantId" column="tenant_id"/>
+        <result property="recordId" column="record_id"/>
+        <result property="customerId" column="customer_id"/>
+        <result property="recordType" column="record_type"/>
+        <result property="method" column="method"/>
+        <result property="recordTime" column="record_time"/>
+        <result property="recordDesc" column="record_desc"/>
+        <result property="recordAmount" column="record_amount"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deleteTime" column="delete_time"/>
+        <result property="orderId" column="order_id"/>
+    </resultMap>
+
+
+</mapper>

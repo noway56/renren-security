@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luming.modules.crm.dao.CustomerDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.luming.modules.crm.entity.CustomerEntity" id="customerMap">
+        <result property="tenantId" column="tenant_id"/>
+        <result property="customerId" column="customer_id"/>
+        <result property="companyId" column="company_id"/>
+        <result property="BusinessOwnerId" column="business_owner_id"/>
+        <result property="BusinessOwnerName" column="business_owner_name"/>
+        <result property="BusinessOwnerUserId" column="business_owner_user_id"/>
+        <result property="BusinessOwnerUserName" column="business_owner_user_name"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="customerNeeds" column="customer_needs"/>
+        <result property="customerCommunicationStage" column="customer_communication_stage"/>
+        <result property="coreProduct" column="core_product"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deleteTime" column="delete_time"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luming.modules.lis.dao.CheckDetailDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.luming.modules.lis.entity.CheckDetailEntity" id="checkDetailMap">
+        <result property="tenantId" column="tenant_id"/>
+        <result property="recordId" column="record_id"/>
+        <result property="itemId" column="item_id"/>
+        <result property="specId" column="spec_id"/>
+        <result property="specName" column="spec_name"/>
+        <result property="rawData" column="raw_data"/>
+        <result property="specValue" column="spec_value"/>
+        <result property="specUnit" column="spec_unit"/>
+        <result property="specResult" column="spec_result"/>
+        <result property="specRemark" column="spec_remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deleteTime" column="delete_time"/>
+    </resultMap>
+
+
+</mapper>

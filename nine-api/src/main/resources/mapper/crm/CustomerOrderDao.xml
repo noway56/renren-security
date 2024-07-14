@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luming.modules.crm.dao.CustomerOrderDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.luming.modules.crm.entity.CustomerOrderEntity" id="customerOrderMap">
+        <result property="tenantId" column="tenant_id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="customerId" column="customer_id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="thirdOrderNo" column="third_order_no"/>
+        <result property="contractNo" column="contract_no"/>
+        <result property="countractRecord" column="countract_record"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="taxInclude" column="tax_include"/>
+        <result property="freightInclude" column="freight_include"/>
+        <result property="paymentType" column="payment_type"/>
+        <result property="sellAmount" column="sell_amount"/>
+        <result property="transportType" column="transport_type"/>
+        <result property="transportUnitFee" column="transport_unit_fee"/>
+        <result property="freightAmount" column="freight_amount"/>
+        <result property="finalAmount" column="final_amount"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deleteTime" column="delete_time"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luming.modules.oa.dao.CompanyDao">
+    <resultMap type="com.luming.modules.oa.entity.CompanyEntity" id="companyMap">
+        <result property="tenantId" column="tenant_id"/>
+        <result property="companyId" column="company_id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="intro" column="intro"/>
+        <result property="companyType" column="company_type"/>
+        <result property="isCustomer" column="is_customer"/>
+        <result property="isProvider" column="is_provider"/>
+        <result property="isInternal" column="is_internal"/>
+        <result property="bossName" column="boss_name"/>
+        <result property="bossPhone" column="boss_phone"/>
+        <result property="bossEmail" column="boss_email"/>
+        <result property="address" column="address"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="area" column="area"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deleteTime" column="delete_time"/>
+    </resultMap>
+
+
+</mapper>
