@@ -45,9 +45,9 @@ public class ProviderController {
     /**
      * 列表
      */
-    @PostMapping("/list")
+    @PostMapping("/page")
     @ApiOperation("供应商列表")
-    public R list(@RequestBody ProviderPageForm providerPageForm){
+    public R page(@RequestBody ProviderPageForm providerPageForm){
         log.info("供应商列表param: {}", providerPageForm);
         ValidatorUtils
                 .validateEntity(providerPageForm);
@@ -67,6 +67,17 @@ public class ProviderController {
         return R.ok().put("data", page);
     }
 
+    /**
+     * 供应商列表查询
+     */
+    @PostMapping("/list")
+    @ApiOperation("供应商列表查询")
+    public R list(@RequestBody ProviderEntity provider){
+        log.info("供应商列表查询param: {}", provider);
+        QueryWrapper<ProviderEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(provider);
+        return  R.ok().put("data", providerService.list(queryWrapper));
+    }
 
     /**
      * 信息

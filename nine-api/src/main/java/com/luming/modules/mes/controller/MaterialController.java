@@ -38,10 +38,10 @@ public class MaterialController {
     /**
      * 原材料列表
      */
-    @PostMapping("/list")
+    @PostMapping("/page")
     @ApiOperation("原材料列表")
-    public R list(@RequestBody MaterialPageForm materialPageForm){
-        log.info("原材料类别列表param: {}", materialPageForm);
+    public R page(@RequestBody MaterialPageForm materialPageForm){
+        log.info("原材料列表param: {}", materialPageForm);
         ValidatorUtils.validateEntity(materialPageForm);
 
         Page<MaterialEntity> page = new Page<>();
@@ -55,6 +55,19 @@ public class MaterialController {
 
         return R.ok().put("data", pageList);
     }
+
+    /**
+     * 原材料列表
+     */
+    @PostMapping("/list")
+    @ApiOperation("原材料列表查询")
+    public R list(@RequestBody MaterialEntity material){
+        log.info("原材料列表param: {}", material);
+        QueryWrapper<MaterialEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(material);
+        return R.ok().put("data", materialService.list(queryWrapper));
+    }
+
 
 
     /**

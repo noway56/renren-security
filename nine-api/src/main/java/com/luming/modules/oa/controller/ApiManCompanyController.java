@@ -57,9 +57,9 @@ public class ApiManCompanyController {
     private ProviderService providerService;
 
     @Login
-    @PostMapping("list")
+    @PostMapping("page")
     @ApiOperation("公司列表")
-    public R list(@RequestBody CompanyPageForm companyPageForm) {
+    public R page(@RequestBody CompanyPageForm companyPageForm) {
         ValidatorUtils
                 .validateEntity(companyPageForm);
 
@@ -76,6 +76,16 @@ public class ApiManCompanyController {
         page.setTotal(data.getTotal());
         return R.ok().put("data", page);
 
+    }
+
+    @Login
+    @PostMapping("list")
+    @ApiOperation("公司列表")
+    public R list(@RequestBody CompanyEntity company) {
+        log.info("公司列表:{}", company);
+        QueryWrapper<CompanyEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(company);
+        return R.ok().put("data", companyService.list(queryWrapper));
     }
 
     @Login

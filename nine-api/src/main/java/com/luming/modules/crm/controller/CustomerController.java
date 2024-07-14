@@ -44,9 +44,9 @@ public class CustomerController {
     /**
      * 列表
      */
-    @PostMapping("/list")
-    @ApiOperation("客户列表")
-    public R list(@RequestBody CustomerPageForm customerPage){
+    @PostMapping("/page")
+    @ApiOperation("客户列表分页")
+    public R page(@RequestBody CustomerPageForm customerPage){
         log.info("客户列表param: {}", customerPage);
         ValidatorUtils
                 .validateEntity(customerPage);
@@ -66,6 +66,17 @@ public class CustomerController {
         return R.ok().put("data", page);
     }
 
+    /**
+     * 列表
+     */
+    @PostMapping("/list")
+    @ApiOperation("客户列表")
+    public R list(@RequestBody CustomerEntity customer){
+        log.info("客户列表param: {}", customer);
+        QueryWrapper<CustomerEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(customer);
+        return R.ok().put("data", customerService.list(queryWrapper));
+    }
 
     /**
      * 信息
