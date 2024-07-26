@@ -45,6 +45,10 @@ public class MaterialEntity implements Serializable {
 	 */
 	private String providerName;
 	/**
+	 * 供应商编码
+	 */
+	private String providerCode;
+	/**
 	 * 原材料类别ID
 	 */
 	private Long categoryId;
@@ -52,6 +56,8 @@ public class MaterialEntity implements Serializable {
 	 * 原材料类别名称
 	 */
 	private String categoryName;
+	private String tagStr;
+	private String deliverMethod;
 	/**
 	 * 原材料价格，以分为单位
 	 */
@@ -68,6 +74,7 @@ public class MaterialEntity implements Serializable {
 	 * 原材料最终成本，以分为单位
 	 */
 	private Integer finalCost;
+
 	/**
 	 * 创建时间
 	 */

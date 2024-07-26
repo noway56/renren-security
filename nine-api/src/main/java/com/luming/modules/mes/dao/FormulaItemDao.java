@@ -1,7 +1,7 @@
 package com.luming.modules.mes.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.luming.modules.mes.entity.RecipeItemEntity;
+import com.luming.modules.mes.entity.FormulaItemEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -11,5 +11,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @Date: 2024-07-14 22:31
  */
 @Mapper
-public interface RecipeItemDao extends BaseMapper<RecipeItemEntity> {
+public interface FormulaItemDao extends BaseMapper<FormulaItemEntity> {
 }

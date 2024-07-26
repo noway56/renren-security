@@ -1,50 +1,56 @@
--- 配方
-DROP TABLE IF EXISTS `mes_formula`;
 CREATE TABLE `mes_formula` (
-  `tenant_id` bigint NOT NULL COMMENT '租户ID',
-  `formula_id` bigint NOT NULL COMMENT '配方ID',
-  `formula_code` varchar(50) NOT NULL COMMENT '配方编码',
-  `formula_desc` varchar(200) COMMENT '配方描述',
-  `formula_type` varchar(50) COMMENT '配方类型: 0. 参考配方(外部录入)，1. 试算配方(临时), 2. 试验配方， 3.储备配方(实验验证，未投产) 4. 不成熟生产配方<200吨无客诉, 5. 稳定配方<400吨无客诉， 6. 成熟配方>1000吨 无客诉',
+  `tenant_id` bigint(20) NOT NULL COMMENT '租户ID',
+  `formula_id` bigint(20) NOT NULL COMMENT '配方ID',
+  `code` varchar(50) NOT NULL COMMENT '配方编码',
+  `purpose` varchar(200) DEFAULT NULL COMMENT '配方目的',
+  `formula_type` int(11) DEFAULT NULL COMMENT '配方类型: 0. 参考配方(外部录入)，1. 试算配方(临时), 2. 试验配方， 3.储备配方(实验验证，未投产) 4. 不成熟生产配方<200吨无客诉, 5. 稳定配方<400吨无客诉， 6. 成熟配方>1000吨 无客诉',
+  `enabled` tinyint(1) DEFAULT NULL COMMENT '是否启用',
+  `ash_percent` varchar(20) DEFAULT NULL COMMENT '灰分',
+  `plastic_percent` varchar(20) DEFAULT NULL COMMENT '含胶量',
+  `material_cost` int(11) DEFAULT NULL COMMENT '物料成本',
+  `tax_cost` int(11) DEFAULT NULL COMMENT '含税成本',
+  `tax_free_cost` int(11) DEFAULT NULL COMMENT '不含税成本',
+  `suggested_price` int(11) DEFAULT NULL COMMENT '建议含税出厂售价',
+  `suggested_tax_free_price` int(11) DEFAULT NULL COMMENT '建议不含税出厂售价',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `is_deleted` TINYINT DEFAULT 0 COMMENT '是否已删除',
-  `delete_time` datetime DEFAULT NULL COMMENT '删除时间',,
-  PRIMARY KEY (`formula_id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品配方';
-
-
--- 配方明细
-DROP TABLE IF EXISTS `mes_formula_detail`;
-CREATE TABLE `mes_formula_detail` (
-  `tenant_id` bigint NOT NULL COMMENT '租户ID',
-  `formula_id` bigint NOT NULL COMMENT '配方ID',
-  `material_id` bigint NOT NULL COMMENT '物料ID',
-  `material_name` varchar(50) NOT NULL COMMENT '物料名称',
-  `material_amount` varchar(50) NOT NULL COMMENT '物料数量',
-  `material_percent` varchar(50) NOT NULL COMMENT '物料比例',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `is_deleted` TINYINT DEFAULT 0 COMMENT '是否已删除',
+  `is_deleted` tinyint(4) DEFAULT '0' COMMENT '是否已删除',
   `delete_time` datetime DEFAULT NULL COMMENT '删除时间',
-  PRIMARY KEY (`formula_id`,`material_id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品配方明细';
+  PRIMARY KEY (`formula_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品配方';
 
 
+CREATE TABLE `mes_formula_item` (
+  `tenant_id` bigint(20) NOT NULL COMMENT '租户ID',
+  `formula_id` bigint(20) NOT NULL COMMENT '配方ID',
+  `formula_item_id` bigint(20) NOT NULL COMMENT '配方子项ID',
+  `material_id` bigint(20) NOT NULL COMMENT '物料ID',
+  `material_name` varchar(50) NOT NULL COMMENT '物料名称',
+  `quantity` decimal(11,0) NOT NULL COMMENT '物料数量',
+  `weight_ratio` int(11) NOT NULL COMMENT '物料重量比例（万分之X）',
+  `tag_str` varchar(200) DEFAULT NULL COMMENT '物料标签，用,分割',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `is_deleted` tinyint(4) DEFAULT '0' COMMENT '是否已删除',
+  `delete_time` datetime DEFAULT NULL COMMENT '删除时间',
+  PRIMARY KEY (`formula_item_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品配方子项'
 
--- 生产成本字典
-DROP TABLE IF EXISTS `mes_cost_dict`;
+-- 生产配置字典
+DROP TABLE IF EXISTS `mes_setting`;
 CREATE TABLE `mes_cost_dict` (
   `tenant_id` bigint NOT NULL COMMENT '租户ID',
-  `dict_key` varchar(50) NOT NULL COMMENT '字典键',
-  `dict_value` varchar(50) NOT NULL COMMENT '字典值',
+  `setting_id` bigint NOT NULL COMMENT '设置ID',
+  `setting_key` varchar(50) NOT NULL COMMENT '设置键',
+  `setting_value` varchar(50) NOT NULL COMMENT '设置值',
   `unit` varchar(50) NOT NULL COMMENT '单位',
-  `dict_desc` varchar(200) COMMENT '字典描述',
+  `setting_desc` varchar(200) COMMENT '配置描述',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `is_deleted` TINYINT DEFAULT 0 COMMENT '是否已删除',
-  `delete_time` datetime DEFAULT NULL COMMENT '删除时间',
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='生产成本字典';
+  `delete_time` datetime DEFAULT NULL COMMENT '删除时间'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='生产配置字典';
 
 
 -- 生产单

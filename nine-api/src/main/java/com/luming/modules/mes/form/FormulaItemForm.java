@@ -1,4 +1,4 @@
-package com.luming.modules.mes.entity;
+package com.luming.modules.mes.form;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -15,8 +15,7 @@ import java.util.Date;
  * @date 2024-03-18 22:34:57
  */
 @Data
-@TableName("crm_material_item")
-public class RecipeItemEntity implements Serializable {
+public class FormulaItemForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,12 +25,11 @@ public class RecipeItemEntity implements Serializable {
 	/**
 	 * 配方子项ID
 	 */
-	@TableId
-	private Long recipeItemId;
+	private Long formulaItemId;
 	/**
 	 * 配方id
 	 */
-	private Long receipId;
+	private Long formulaId;
 	/**
 	 * 原材料id
 	 */
@@ -41,32 +39,22 @@ public class RecipeItemEntity implements Serializable {
 	 */
 	private String materialName;
 	/**
-	 * 原材料用量(kg)
+	 * 原材料用量(g)
 	 */
-	private Double quantity;
+	private Integer quantity;
 	/**
-	 * 原材料重量比例
+	 * 原材料重量比例（万分之X）
 	 */
-	private Double weightRatio;
+	private Integer weightRatio;
 	/**
 	 * 标签
 	 */
-	private String tag;
-	/**
-	 * 创建时间
-	 */
-	private Date createTime;
-	/**
-	 * 更新时间
-	 */
-	private Date updateTime;
-	/**
-	 * 是否已删除
-	 */
-	private Integer isDeleted;
-	/**
-	 * 删除时间
-	 */
-	private Date deleteTime;
+	private String tagStr;
+
+	private Integer price;
+
+	private Integer  totalPrice;
+
+	private Integer sort;
 
 }

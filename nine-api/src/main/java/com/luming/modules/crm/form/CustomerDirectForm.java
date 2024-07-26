@@ -72,7 +72,17 @@ public class CustomerDirectForm extends CustomerFromCompanyForm{
      * 客户核心产品
      */
     @ApiModelProperty(value = "客户核心产品")
-    private String customerCoreProduct;
+    private String coreProduct;
+    /**
+     * 电话
+     */
+    @ApiModelProperty(value = "电话")
+    private  String phone;
+    /**
+     * 网址
+     */
+    @ApiModelProperty(value = "网址")
+    private  String website;
     /**
      * 公司简介
      */
@@ -84,6 +94,14 @@ public class CustomerDirectForm extends CustomerFromCompanyForm{
     @ApiModelProperty(value = "公司类型, 1: 一般， 2: 小微， 3：自然人(虚拟公司)")
     @NotNull(message="公司类型不能为空")
     private Integer companyType;
+    /**
+     *  是否为服务商, 1: 是， 2: 否
+     */
+    private Integer isProvider;
+    /**
+     *  是否为客户, 1: 是， 2: 否
+     */
+    private Integer isCustomer;
     /**
      * 是否为内部
      */

@@ -7,14 +7,14 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 /**
- * @Class: com.luming.modules.mes.form.RecipePageForm
+ * @Class: com.luming.modules.crm.form.MaterialPageForm
  * @Desc:
  * @author: luwu
- * @Date: 2024-07-14 22:29
+ * @Date: 2024-07-11 22:37
  */
 @Data
-@ApiModel(value = "RecipeItemPageForm", description = "配方分页表单")
-public class RecipeItemPageForm {
+@ApiModel(value = "MaterialPageForm", description = "Mes配置查询表单")
+public class MesSettingPageForm {
 
     @ApiModelProperty(value = "当前页数")
     @NotNull(message="当前页数不能为空")
@@ -30,7 +30,4 @@ public class RecipeItemPageForm {
 
     @ApiModelProperty(value = "搜索关键字")
     private String input;
-
-
-
 }

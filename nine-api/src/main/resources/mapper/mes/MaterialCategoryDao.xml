@@ -12,6 +12,7 @@
         <result property="level" column="level"/>
         <result property="parentId" column="parent_id"/>
         <result property="usageType" column="usage_type"/>
+        <result property="tags" column="tags"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="isDeleted" column="is_deleted"/>

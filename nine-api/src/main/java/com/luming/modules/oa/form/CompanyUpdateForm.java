@@ -44,6 +44,17 @@ public class CompanyUpdateForm {
     @ApiModelProperty(value = "公司简介")
     private String intro;
 
+    /**
+     * 电话
+     */
+    @ApiModelProperty(value = "电话")
+    private  String phone;
+    /**
+     * 网址
+     */
+    @ApiModelProperty(value = "网址")
+    private  String website;
+
     @ApiModelProperty(value = "公司类型, 1: 一般， 2: 小微， 3：自然人(虚拟公司)")
     @NotNull(message="公司类型不能为空")
     private Integer companyType;
@@ -51,6 +62,16 @@ public class CompanyUpdateForm {
     @ApiModelProperty(value = "是否为内部, 1: 内部， 2: 外部")
     @NotNull(message="是否为内部不能为空")
     private Integer isInternal;
+    /**
+     *  是否为服务商, 1: 是， 2: 否
+     */
+    @ApiModelProperty(value = "是否为服务商, 1: 是， 2: 否")
+    private Integer isProvider;
+    /**
+     *  是否为客户, 1: 是， 2: 否
+     */
+    @ApiModelProperty(value = "是否为客户, 1: 是， 2: 否")
+    private Integer isCustomer;
 
     @ApiModelProperty(value = "老板姓名")
     private String bossName;

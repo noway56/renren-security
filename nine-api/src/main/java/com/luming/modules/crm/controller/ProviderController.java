@@ -103,7 +103,11 @@ public class ProviderController {
 
         CompanyEntity company = new CompanyEntity();
         BeanUtils.copyProperties(provider, company);
-        companyService.save(company);
+        log.info("save direct provider 1. save company:{}",  company);
+        Boolean savedCompany = companyService.save(company);
+        if (!savedCompany){
+            return R.error("保存公司信息失败");
+        }
         // 通过公司信息添加供应商
         QueryWrapper<CompanyEntity> companyEntityQueryWrapper
                 = new QueryWrapper<>();

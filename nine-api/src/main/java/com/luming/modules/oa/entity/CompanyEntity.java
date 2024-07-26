@@ -3,6 +3,7 @@ package com.luming.modules.oa.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -37,6 +38,14 @@ public class CompanyEntity implements Serializable {
 	 * 公司编码
 	 */
 	private String code;
+	/**
+	 * 电话
+	 */
+	private  String phone;
+	/**
+	 * 网址
+	 */
+	private  String website;
 	/**
 	 * 公司简介
 	 */

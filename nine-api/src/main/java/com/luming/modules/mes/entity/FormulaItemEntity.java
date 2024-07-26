@@ -8,15 +8,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 配方
+ * 配方子项
  * 
  * @author luwu
  * @email luwu2015@foxmail.com
- * @date
+ * @date 2024-03-18 22:34:57
  */
 @Data
-@TableName("crm_recipe")
-public class RecipeEntity implements Serializable {
+@TableName("mes_formula_item")
+public class FormulaItemEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,46 +24,43 @@ public class RecipeEntity implements Serializable {
 	 */
 	private Long tenantId;
 	/**
-	 * 配方ID
+	 * 配方子项ID
 	 */
 	@TableId
-	private Long recipeId;
+	private Long formulaItemId;
 	/**
-	 * 配方编码
+	 * 配方id
 	 */
-	private String code;
+	private Long formulaId;
 	/**
-	 * 配方目的
+	 * 原材料id
 	 */
-	private String purpose;
+	private Long materialId;
 	/**
-	 * 灰分
+	 * 原材料名称
 	 */
-	private String ashPercent;
+	private String materialName;
 	/**
-	 * 含胶量
+	 * 原材料用量(g)
 	 */
-	private String plasticPercent;
+	private Integer quantity;
 	/**
-	 * 原料成本，以分为单位
+	 * 原材料重量比例（万分之X）
 	 */
-	private Integer materialCost;
+	private Integer weightRatio;
 	/**
-	 * 含税成本，以分为单位
+	 * 单价
 	 */
-	private Integer taxCost;
+	private Integer price;
 	/**
-	 * 非税成本，以分为单位
+	 * 总价
 	 */
-	private Integer TaxFreeCost;
+	private Integer totalPrice;
+	private Integer sort;
 	/**
-	 * 建议含税出厂价，以分为单位
+	 * 标签
 	 */
-	private Integer suggestedPrice;
-	/**
-	 * 建议无税出厂价，以分为单位
-	 */
-	private Integer suggestedTaxFreePrice;
+	private String tagStr;
 	/**
 	 * 创建时间
 	 */

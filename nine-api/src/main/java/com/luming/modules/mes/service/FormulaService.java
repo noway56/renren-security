@@ -1,7 +1,7 @@
 package com.luming.modules.mes.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.luming.modules.mes.entity.RecipeEntity;
+import com.luming.modules.mes.entity.FormulaEntity;
 
 /**
  * @Interface: com.luming.modules.mes.service.RecipeService
@@ -9,6 +9,6 @@ import com.luming.modules.mes.entity.RecipeEntity;
  * @author: luwu
  * @Date: 2024-07-14 22:36
  */
-public interface RecipeService extends IService<RecipeEntity>{
+public interface FormulaService extends IService<FormulaEntity>{
 
 }

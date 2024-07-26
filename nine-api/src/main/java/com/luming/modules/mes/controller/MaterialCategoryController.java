@@ -1,5 +1,6 @@
 package com.luming.modules.mes.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -10,9 +11,11 @@ import com.luming.modules.mes.entity.MaterialCategoryEntity;
 import com.luming.modules.mes.form.MaterialCategoryForm;
 import com.luming.modules.mes.form.MaterialCategoryPageForm;
 import com.luming.modules.mes.service.MaterialCategoryService;
+import io.netty.util.internal.ObjectUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -55,9 +58,12 @@ public class MaterialCategoryController {
         IPage<MaterialCategoryEntity> pageList = materialCategoryService.page(page, queryWrapper);
         pageList.getRecords().stream().forEach(
                 item ->{
+                    log.info("item: {}", JSON.toJSONString(item));
                     int count = item.getLevel();
-                    MaterialCategoryEntity current = item;
+                    MaterialCategoryEntity current =
+                            materialCategoryService.getById(item.getCategoryId());
                     while(count > 0){
+                        log.info("current: {}", JSON.toJSONString(current));
                         if(count == 1){
                             item.setLevel1(current.getName());
                             break;
@@ -68,8 +74,7 @@ public class MaterialCategoryController {
                                 item.setLevel3(current.getName());
                             }
                             count--;
-                            MaterialCategoryEntity parent = materialCategoryService.getById(item.getParentId());
-                            current = parent;
+                            current = materialCategoryService.getById(current.getParentId());
                         }
                     }
                 }

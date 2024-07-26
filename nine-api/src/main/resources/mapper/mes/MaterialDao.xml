@@ -8,12 +8,16 @@
         <result property="tenantId" column="tenant_id"/>
         <result property="materialId" column="material_id"/>
         <result property="materialCode" column="material_code"/>
-        <result property="providerId" column="provider_id"/>
-        <result property="categoryId" column="category_id"/>
         <result property="materialName" column="material_name"/>
-        <result property="laestRawPrice" column="laest_raw_price"/>
-        <result property="latestTaxPrice" column="latest_tax_price"/>
-        <result property="freigtPrice" column="freigt_price"/>
+        <result property="providerId" column="provider_id"/>
+        <result property="providerCode" column="provider_code"/>
+        <result property="providerName" column="provider_name"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="tagStr" column="tag_str"/>
+        <result property="rawPrice" column="raw_price"/>
+        <result property="taxPrice" column="tax_price"/>
+        <result property="freightPrice" column="freight_price"/>
         <result property="finalCost" column="final_cost"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>

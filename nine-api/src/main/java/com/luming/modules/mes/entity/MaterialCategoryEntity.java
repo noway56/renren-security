@@ -49,6 +49,10 @@ public class MaterialCategoryEntity implements Serializable {
 	 * 原材料类别分类,1.原材料(可用于生产,自用), 2.代理销售
 	 */
 	private Integer usageType;
+	/**
+	 * 标签
+	 */
+	private String tags;
 
 	@TableField(exist = false)
 	private String level1;

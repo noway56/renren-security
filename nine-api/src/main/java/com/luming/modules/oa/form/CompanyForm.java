@@ -40,6 +40,17 @@ public class CompanyForm {
     @ApiModelProperty(value = "公司编码")
     private String code;
 
+    /**
+     * 电话
+     */
+    @ApiModelProperty(value = "电话")
+    private  String phone;
+    /**
+     * 网址
+     */
+    @ApiModelProperty(value = "网址")
+    private  String website;
+
     @ApiModelProperty(value = "公司简介")
     private String intro;
 

@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 @ApiModel(value = "RecipePageForm", description = "配方分页表单")
-public class RecipePageForm {
+public class FormulaPageForm {
 
     @ApiModelProperty(value = "当前页数")
     @NotNull(message="当前页数不能为空")
