@@ -32,6 +32,18 @@ public class FormulaForm implements Serializable {
 	 */
 	private String purpose;
 	/**
+	 * 配方类别名
+	 */
+	private String categoryName;
+	/**
+	 *  配方类别ID
+	 */
+	private Long categoryId;
+	/**
+	 * 配方类别编号
+	 */
+	private String categoryCode;
+	/**
 	 *  配方类型:
 	 *  0. 参考配方(外部录入)，
 	 *  1. 试算配方(临时),
@@ -46,6 +58,10 @@ public class FormulaForm implements Serializable {
 	 * 生产是否启用
 	 */
 	private Integer enabled;
+	/**
+	 * 加工方式
+	 */
+	private String cuttingMethod;
 	/**
 	 * 灰分
 	 */

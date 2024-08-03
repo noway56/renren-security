@@ -35,6 +35,18 @@ public class FormulaEntity implements Serializable {
 	 */
 	private String code;
 	/**
+	 * 配方类别名
+	 */
+	private String categoryName;
+	/**
+	 *  配方类别ID
+	 */
+	private Long categoryId;
+	/**
+	 * 配方类别编号
+	 */
+	private String categoryCode;
+	/**
 	 * 配方目的
 	 */
 	private String purpose;
@@ -53,6 +65,10 @@ public class FormulaEntity implements Serializable {
 	 * 生产是否启用
 	 */
 	private Integer enabled;
+	/**
+	 * 加工方式
+	 */
+	private String cuttingMethod;
 	/**
 	 * 灰分
 	 */

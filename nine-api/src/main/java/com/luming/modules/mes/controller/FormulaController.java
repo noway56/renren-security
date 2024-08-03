@@ -58,7 +58,9 @@ public class FormulaController {
         page.setSize(formulaPage.getPageSize());
 
         QueryWrapper<FormulaEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("tenant_id", formulaPage.getTenantId());
+        queryWrapper.eq("tenant_id", formulaPage.getTenantId())
+                    .eq(StringUtils.isNotBlank(formulaPage.getCategoryName()),"category_name", formulaPage.getCategoryName())
+                            .in(!formulaPage.getFormulaType().isEmpty(),"formula_type", formulaPage.getFormulaType());
         queryWrapper.like(StringUtils.isNotBlank(formulaPage.getInput()), "name", formulaPage.getInput());
 
         IPage<FormulaEntity> pageList = formulaService.page(page, queryWrapper);
@@ -66,7 +68,8 @@ public class FormulaController {
                 .forEach(f->{
                     // 查询配方明细
                     QueryWrapper<FormulaItemEntity> query = new QueryWrapper<>();
-                    query.eq("formula_id", f.getFormulaId());
+                    query.eq("formula_id", f.getFormulaId())
+                        .orderByAsc("sort");
                     f.setItems(formulaItemService.list(query));
                 });
         page.setTotal(pageList.getTotal());

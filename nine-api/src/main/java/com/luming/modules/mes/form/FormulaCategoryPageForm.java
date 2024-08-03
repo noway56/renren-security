@@ -5,18 +5,16 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
- * @Class: com.luming.modules.mes.form.RecipePageForm
+ * @Class: com.luming.modules.crm.form.MaterialCategoryPageForm
  * @Desc:
  * @author: luwu
- * @Date: 2024-07-14 22:29
+ * @Date: 2024-07-11 23:03
  */
 @Data
-@ApiModel(value = "RecipePageForm", description = "配方分页表单")
-public class FormulaPageForm {
-
+@ApiModel("配方分类分页查询")
+public class FormulaCategoryPageForm {
     @ApiModelProperty(value = "当前页数")
     @NotNull(message="当前页数不能为空")
     private Long page;
@@ -32,12 +30,5 @@ public class FormulaPageForm {
     @ApiModelProperty(value = "搜索关键字")
     private String input;
 
-    @ApiModelProperty(value = "配方类型")
-    private List<Integer> formulaType;
-
-    @ApiModelProperty(value = "配方分类名称")
-    private String categoryName;
-
-
-
+    private Integer level;
 }
